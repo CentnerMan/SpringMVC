@@ -1,3 +1,4 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
 <html>
@@ -6,11 +7,11 @@
     </head>
 
     <body>
-        <h1>Welcome page</h1>
-        <h2>Index:</h2>
+        <h1>Магазин</h1>
+        <h2>Меню:</h2>
         <br>
-        <a href="${pageContext.request.contextPath}/showSimpleForm">Show Simple Form Page</a>
+        <a href="${pageContext.request.contextPath}/products/showAllProducts">Все товары</a>
         <br>
-        <a href="${pageContext.request.contextPath}/students/showForm">Show Students Form Page</a>
+        <a href="${pageContext.request.contextPath}/products/addProduct">Добавить товар</a>
     </body>
 </html>

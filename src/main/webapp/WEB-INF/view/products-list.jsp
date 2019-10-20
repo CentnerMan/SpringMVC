@@ -12,14 +12,19 @@
 
 <html>
 <head>
-    <title>Products list</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css"/>
+    <title>Список товаров</title>
+
 </head>
 <body>
-    <h1>All products</h1>
-    <c:forEach var="product" items="${products}">
-<%--        <span>Id: ${product.id} Title: ${product.title} Cost: ${product.cost}</span>--%>
-        <span>${product.id} ${product.title} ${product.cost}</span>
-        <br>
-    </c:forEach>
+<h1>Все товары</h1>
+<c:forEach var="product" items="${products}">
+    <%--        <span>Id: ${product.id} Title: ${product.title} Cost: ${product.cost}</span>--%>
+    <span>${product.id} ${product.title} ${product.cost}</span>
+    <br>
+</c:forEach>
+
+<br>
+<a href="${pageContext.request.contextPath}/">Главная</a>
 </body>
 </html>

@@ -11,6 +11,10 @@
 <!DOCTYPE html>
 
 <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/main.css" />
+</head>
+
 <body>
 <form:form action="addProductProcess" modelAttribute="product">
     Id: <form:input path="id"/>
