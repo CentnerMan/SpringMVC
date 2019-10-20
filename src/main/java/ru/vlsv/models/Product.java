@@ -1,7 +1,5 @@
 package ru.vlsv.models;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 /**
  * GeekBrains Java, SpringMVC.
  *
@@ -11,24 +9,24 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 
 public class Product {
-    private int id;
+    private Long id;
     private String title;
-    private long coast;
+    private int cost;
 
     public Product() {
     }
 
-    public Product(int id, String title, long coast) {
+    public Product(Long id, String title, int cost) {
         this.id = id;
         this.title = title;
-        this.coast = coast;
+        this.cost = cost;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -40,11 +38,11 @@ public class Product {
         this.title = title;
     }
 
-    public long getCoast() {
-        return coast;
+    public int getCost() {
+        return cost;
     }
 
-    public void setCoast(long coast) {
-        this.coast = coast;
+    public void setCost(int cost) {
+        this.cost = cost;
     }
 }

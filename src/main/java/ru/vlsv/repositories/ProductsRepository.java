@@ -2,6 +2,8 @@ package ru.vlsv.repositories;
 
 import org.springframework.stereotype.Component;
 import ru.vlsv.models.Product;
+
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,16 +17,21 @@ import java.util.List;
 
 @Component
 public class ProductsRepository {
-    public List<Product> products;
+    private List<Product> products;
 
-    public ProductsRepository() {
+    @PostConstruct
+    public void init() {
         products = new ArrayList<>();
+        products.add(new Product(1L, "Чемодан", 1000));
+        products.add(new Product(2L, "Сундук", 2000));
+        products.add(new Product(3L, "Портфель", 3000));
+        products.add(new Product(4L, "Кошёлка", 1000));
     }
 
-    public Product getProductById(int id) {
-        for (int i = 0; i < products.size(); i++) {
-            if (products.get(i).getId() == id) {
-                return products.get(i);
+    public Product getProductById(Long id) {
+        for (Product product : products) {
+            if (product.getId().equals(id)) {
+                return product;
             }
         }
         return null;
@@ -34,4 +41,8 @@ public class ProductsRepository {
         return products;
     }
 
+    public Product save(Product product) {
+        products.add(product);
+        return product;
+    }
 }

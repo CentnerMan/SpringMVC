@@ -12,16 +12,19 @@ public class MainController {
     public String showHomePage() {
         return "index";
     }
+//    public String showHomePage() {
+//        return "products-form";
+//    }
 
-    @GetMapping("/info")
-    public String showInfoPage(Model model) {
-        String msg = "Java";
-        Student bob = new Student();
-        bob.setFirstName("Bob");
-
-        model.addAttribute("message123", msg);
-        model.addAttribute("student", bob);
-
-        return "info";
-    }
+//    @GetMapping("/info")
+//    public String showInfoPage(Model model) {
+//        String msg = "Java";
+//        Student bob = new Student();
+//        bob.setFirstName("Bob");
+//
+//        model.addAttribute("message123", msg);
+//        model.addAttribute("student", bob);
+//
+//        return "info";
+//    }
 }

@@ -13,10 +13,10 @@ public class FormsController {
         return "myform";
     }
     
-//    @RequestMapping(path="/processForm", method=RequestMethod.GET)
-//    public String processForm() {
-//        return "myform-result";
-//    }
+    @RequestMapping(path="/processForm", method=RequestMethod.GET)
+    public String processForm(Model model) {
+        return "myform-result";
+    }
 
     @RequestMapping(path="/advProcessForm", method= RequestMethod.GET)
     public String advProcessForm(@RequestParam("studentName") String studName, Model model) {

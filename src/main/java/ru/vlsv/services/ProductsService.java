@@ -25,17 +25,19 @@ public class ProductsService {
         this.productsRepository = productsRepository;
     }
 
-    public Product getProductById(int id) {
+    public Product getProductById(Long id) {
         Product product = productsRepository.getProductById(id);
         return product;
     }
 
-    public Object getAllProducts() {
-        List<Product> products=new ArrayList<>();
-        return products;
+    public List<Product> getAllProducts() {
+        return productsRepository.getAllProducts();
     }
 
-    public void saveProduct(Product product) {
-
+    public Product saveProduct(Product product) {
+        if (product != null) {
+            return productsRepository.save(product);
+        }
+        return null;
     }
 }

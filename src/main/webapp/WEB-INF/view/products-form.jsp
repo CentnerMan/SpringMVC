@@ -5,18 +5,21 @@
   Date: 20.10.2019 Time: 17:34
 --%>
 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
 
 <html>
 <body>
-<h1>Form Example</h1>
-<form action="advProcessForm" method="GET">
-    <input type="text" name="productName" placeholder="Enter product name"/>
-    <input type="submit"/>
-</form>
-<br>
-<a href="${pageContext.request.contextPath}/">to Index Page</a>
+<form:form action="addProductProcess" modelAttribute="product">
+    Id: <form:input path="id"/>
+    <br>
+    Title: <form:input path="title"/>
+    <br>
+    Cost: <form:input path="cost"/>
+    <br>
+    <input type="submit" value="Submit"/>
+</form:form>
 </body>
 </html>

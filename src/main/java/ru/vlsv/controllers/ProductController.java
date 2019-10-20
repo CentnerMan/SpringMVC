@@ -3,9 +3,7 @@ package ru.vlsv.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import ru.vlsv.models.Product;
 import ru.vlsv.services.ProductsService;
 
@@ -27,24 +25,30 @@ public class ProductController {
         this.productsService = productsService;
     }
 
-    @GetMapping("/showAllProducts")
-    public String showSimpleForm(Model model) {
-        Product product = new Product();
-        model.addAttribute("products", productsService.getAllProducts());
-        return "products-list";
-    }
-
-    @RequestMapping("/formAddProductShow")
-    public String formAddProductShow(Model model){
+    @RequestMapping("/addProduct")
+    public String formAddProductShow(Model model) {
         Product product = new Product();
         model.addAttribute("product", product);
-        return "product-form";
+        return "products-form";
     }
 
-    @RequestMapping("/formAddProductProcess")
-    public String formAddProductProcess(@ModelAttribute("product") Product product){
-    productsService.saveProduct(product);
-        return "redirect:/product/showAllProducts";
+    @RequestMapping("/addProductProcess")
+    public String formAddProductProcess(@ModelAttribute("product") Product product) {
+        productsService.saveProduct(product);
+        return "redirect:/products/showAllProducts";
+    }
+
+    @RequestMapping(path="/showProductsById", method= RequestMethod.GET)
+    public String showProductsById(Model model, @RequestParam Long id) {
+        Product product = productsService.getProductById(id);
+        model.addAttribute("product", product);
+        return "product-form-result";
+    }
+
+    @GetMapping("/showAllProducts")
+    public String showAllProducts(Model model) {
+        model.addAttribute("products", productsService.getAllProducts());
+        return "products-list";
     }
 
 }
