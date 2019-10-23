@@ -32,23 +32,23 @@ public class ProductController {
         return "products-form";
     }
 
-    @RequestMapping("/addProductProcess")
-    public String formAddProductProcess(@ModelAttribute("product") Product product) {
-        productsService.saveProduct(product);
-        return "redirect:/products/showAllProducts";
-    }
-
-    @RequestMapping(path="/showProductsById", method= RequestMethod.GET)
-    public String showProductsById(Model model, @RequestParam Long id) {
-        Product product = productsService.getProductById(id);
-        model.addAttribute("product", product);
-        return "product-form-result";
-    }
-
-    @GetMapping("/showAllProducts")
-    public String showAllProducts(Model model) {
-        model.addAttribute("products", productsService.getAllProducts());
-        return "products-list";
-    }
+//    @RequestMapping("/addProductProcess")
+//    public String formAddProductProcess(@ModelAttribute("product") Product product) {
+//        productsService.saveProduct(product);
+//        return "redirect:/products/showAllProducts";
+//    }
+//
+//    @RequestMapping(path="/showProductsById", method= RequestMethod.GET)
+//    public String showProductsById(Model model, @RequestParam Long id) {
+//        Product product = productsService.getProductById(id);
+//        model.addAttribute("product", product);
+//        return "product-form-result";
+//    }
+//
+//    @GetMapping("/showAllProducts")
+//    public String showAllProducts(Model model) {
+//        model.addAttribute("products", productsService.getAllProducts());
+//        return "products-list";
+//    }
 
 }
